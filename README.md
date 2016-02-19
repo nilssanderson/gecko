@@ -8,7 +8,7 @@
 Starting development on a new project or adding to an existing project?
 
 
-# Using the framework as a starter #
+# Getting Started #
 
 To get started download [Gecko](https://github.com/nilssanderson/gecko) with Git:
 ```
