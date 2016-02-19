@@ -1,63 +1,72 @@
-![alt tag](https://raw.github.com/dogfalo/materialize/master/images/materialize.gif)
-===========
+# Gecko #
 
-[![Travis CI](https://travis-ci.org/Dogfalo/materialize.svg?branch=master)](https://travis-ci.org/Dogfalo/materialize)[![Dependency Status](https://david-dm.org/Dogfalo/materialize.svg)](https://david-dm.org/Dogfalo/materialize)[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Dogfalo/materialize?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Materialize, a CSS Framework based on material design
-
-### Current Version : v0.97.4
-
-## Sass Requirements:
-- Ruby Sass 3.3+, LibSass 0.6+
-
-## Supported Browsers:
-Chrome 35+, Firefox 31+, Safari 7+, IE 10+
-
-## Changelog
-- v0.97.4 (Dec 20, 2015)
-  - Added Jasmine testing with Travis CI
-  - Select bugfixes
-  - Grid Offset bugfix
-  - Dropdown overflow bugfix
-  - Range slider error bugfix
-- v0.97.3 (Nov 15, 2015)
-  - Meteor font issues fixed
-  - Select rendering issue fixed
-  - Added Push and Pull to grid
-  - Dynamic accordion appends fixed
-- v0.97.2 (Nov 8, 2015)
-  - Image support inside select
-  - Optgroup supported in select
-  - Multiple select added
-  - Card styling fixes
-  - Breadcrumbs added
-  - Scrollable tabs
-  - Tooltips and dropdowns position themselves more intelligently inside the window
-  - FAB menu is click-toggleable
-  - Horizontal FAB support added
-- v0.97.1 (Sep 13, 2015)
-  - Added new range slider with uses noUiSlider to provide powerful options
-  - Added CSS for Chips
-  - Toasts support adding of html elements
-  - Fixed select destroy/creation bug
-  - Bugfixes for dropdown, badges, collections, scrollfire
-  - Added default preloader color variable
-  - File input now supports multiple files and dynamically loaded elements
-- v0.97.0 (June 21, 2015)
-  - **Documentation changed to use Official Google Icon web font**
-  - **Input errors added**
-  - Flicker on Firefox on dropdowns fixed
-  - Pagination made more responsive
-  - Modal now prevents scrolling
-  - Modal animation added
-  - Support for multiple modals added
-  - Programmatic control of FAB to open/close added
-  - Programmatic control of slider to play/pause added
-  - Plus many more bug fixes
+> Helper framework that has automation using [Gulp](http://gulpjs.com/) for the build process (compression, compilation and browser syncing) and [Materialize](http://materializecss.com/) (built based on Google's Material Design) for the SCSS framework.
 
 
-## Contributing
-[Please read CONTRIBUTING.md for more information](CONTRIBUTING.md)
+### What is this repository for? ###
 
-## Testing
-We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](https://docs.google.com/document/d/1dVM6qGt_b_y9RRhr9X7oZfFydaJIEqB9CT7yekv-4XE/edit?usp=sharing)
+Starting development on a new project or adding to an existing project?
+
+
+# Using the framework as a starter #
+
+To get started download [Gecko](https://github.com/nilssanderson/gecko) with Git:
+```
+git clone https://github.com/nilssanderson/gecko.git
+cd gecko
+npm install
+```
+
+Then to build the framework:
+```
+gulp
+```
+
+The default task should:
+
+* Convert SCSS to CSS
+* Compress Images
+* Open these in the browser for syncing
+
+Your finished site will be created in a folder called `build`, viewable at this URL: [http://localhost:3010](http://localhost:3010)
+
+* Browsersync settings: [http://localhost:3020](http://localhost:3020)
+
+To create compressed, production-ready assets, run:
+```
+gulp production
+```
+
+
+# Adding the framework as a submodule #
+
+Delete the app folder and update the gulpfile srcPath to 'YOUR_SRC_PATH' so you can keep your files where they are.
+
+Follow the below instructions to add the framework to an already existing project and to keep it separate from your current repository:
+```
+git submodule add https://github.com/nilssanderson/gecko.git gecko
+git submodule init
+git submodule update
+```
+
+Once the framework has been added in as a submodule, a `.gitmodules` file will be created. You will need to specify the branch that you wish to track on the framework. Edit the `.gitmodules` file to include the branch:
+```
+[submodule "gecko"]
+	path = gecko
+	url = https://github.com/nilssanderson/gecko.git
+	branch = master
+```
+
+Run this if there have been any updates to the [Gecko](https://github.com/nilssanderson/gecko) framework to pull down the latest changes:
+```
+git submodule update
+```
+
+A detached HEAD state may occur when updating a submodule. Once an update has been run, just make sure that the submodule is tracking the `master` branch:
+```
+cd gecko
+git checkout master
+```
+
+> Some more info that could be looked into in regards to improving submodule addition:
+ [Stackoverflow - Answer 1](http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag/18797720#18797720) and [Stackoverflow - Answer 2](http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag/18799234#18799234)
